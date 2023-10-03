@@ -139,3 +139,22 @@
     font-size: medium;
    
 }
+
+
+.notfound{
+    display: none;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.notfound img{
+    width: 80%;
+    
+
+}
+
+.notfound h1{
+    font-size: 20px;
+}

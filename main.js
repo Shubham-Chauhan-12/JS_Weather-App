@@ -6,22 +6,31 @@ const humidity = document.querySelector('.humidity');
 const windspeed = document.querySelector('.wind-speed');
 const searchBtn = document.getElementById('searchBtn');
 
-const weatherbody = document.querySelector('.weatherbody')
+const weatherbody = document.querySelector('.weatherbody');
+const notfound = document.querySelector('.notfound');
 
 
 
 async function getWeatherInfo(city) {
 
-   
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e700bc3081b1f8b93b22eef9d51de646`;
 
     const data = await fetch(`${url}`).then(response => response.json());
 
     console.log(data);
 
-    // if(data.cod === '404'){
-        
-    // }
+    if (data.cod === `404`) {
+
+        console.log("city not found");
+        notfound.style.display = "flex";
+        weatherbody.style.display = "none";
+        return;
+    }
+
+    notfound.style.display = "none";
+    
+    weatherbody.style.display = "flex";
 
     temperature.innerHTML = Math.round(data.main.temp - 273.15) + "°C";
 
