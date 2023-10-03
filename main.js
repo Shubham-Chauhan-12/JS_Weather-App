@@ -1,23 +1,29 @@
 const inputBox = document.querySelector('.input-box');
 const weatherimg = document.querySelector('.weather-img');
 const temperature = document.querySelector('.temperature');
-const description= document.querySelector('.description');
-const humidity= document.querySelector('.humidity');
-const windspeed= document.querySelector('.wind-speed');
+const description = document.querySelector('.description');
+const humidity = document.querySelector('.humidity');
+const windspeed = document.querySelector('.wind-speed');
 const searchBtn = document.getElementById('searchBtn');
 
+const weatherbody = document.querySelector('.weatherbody')
 
 
-async function getWeatherInfo(city){
 
-    const api= "e700bc3081b1f8b93b22eef9d51de646";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`;
+async function getWeatherInfo(city) {
+
+   
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e700bc3081b1f8b93b22eef9d51de646`;
 
     const data = await fetch(`${url}`).then(response => response.json());
 
-    console.log(data);
+    // console.log(data);
 
-    temperature.innerHTML = Math.round(data.main.temp - 273.15) + "°C" ;
+    // if(data.cod === '404'){
+        
+    // }
+
+    temperature.innerHTML = Math.round(data.main.temp - 273.15) + "°C";
 
     description.innerHTML = data.weather[0].description;
 
@@ -26,11 +32,29 @@ async function getWeatherInfo(city){
     windspeed.innerHTML = data.wind.speed;
 
 
+    switch (data.weather[0].main) {
+        case 'Clouds': weatherimg.src = "assets/cloud.png";
+            break;
+        case 'Clear': weatherimg.src = "assets/clear.png";
+            break;
+        case 'Rain': weatherimg.src = "assets/rain.png";
+            break;
+        case 'Mist': weatherimg.src = "assets/mist.png";
+            break;
+        case 'Snow': weatherimg.src = "assets/snow.png";
+            break;
+        case 'Haze': weatherimg.src = "assets/haze.png";
+            break;
+    }
+
+
 
 }
 
 
-searchBtn.addEventListener('click',()=>{
+searchBtn.addEventListener('click', () => {
     getWeatherInfo(inputBox.value);
 })
+
+
 
