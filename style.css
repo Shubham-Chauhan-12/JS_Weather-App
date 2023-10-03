@@ -114,3 +114,9 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+.text p{
+    text-align: center;
+    font-style:italic;
+    text-transform: capitalize;
+}
