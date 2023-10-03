@@ -13,7 +13,6 @@ const notfound = document.querySelector('.notfound');
 
 async function getWeatherInfo(city) {
 
-
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e700bc3081b1f8b93b22eef9d51de646`;
 
     const data = await fetch(`${url}`).then(response => response.json());
@@ -29,7 +28,7 @@ async function getWeatherInfo(city) {
     }
 
     notfound.style.display = "none";
-    
+
     weatherbody.style.display = "flex";
 
     temperature.innerHTML = Math.round(data.main.temp - 273.15) + "°C";
