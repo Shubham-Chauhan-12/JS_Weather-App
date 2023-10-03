@@ -4,6 +4,16 @@
     font-family: sans-serif;
 }
 
+#head a{
+    padding: 0px 20px;
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    
+}
+
 .content{
     display: flex;
     justify-content: center;
@@ -120,4 +130,12 @@
     text-align: center;
     font-style:italic;
     text-transform: capitalize;
+}
+
+
+#footer a{
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+   
 }
