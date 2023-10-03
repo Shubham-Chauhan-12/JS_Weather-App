@@ -96,7 +96,7 @@
     margin-top: 20px;
 }
 
-.humidity, .wind{
+.humid, .wind{
     display: flex;
     align-items:center ;
 }

@@ -17,6 +17,16 @@ async function getWeatherInfo(city){
 
     console.log(data);
 
+    temperature.innerHTML = Math.round(data.main.temp - 273.15) + "°C" ;
+
+    description.innerHTML = data.weather[0].description;
+
+    humidity.innerHTML = data.main.humidity + " %";
+
+    windspeed.innerHTML = data.wind.speed;
+
+
+
 }
 
 
